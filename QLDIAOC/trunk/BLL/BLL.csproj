@@ -35,8 +35,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DAL">
+      <HintPath>..\DAL\bin\Debug\DAL.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,8 +48,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="BackUpRestoreBLL.cs" />
+    <Compile Include="BaoBLL.cs" />
+    <Compile Include="DiaOcBLL.cs" />
+    <Compile Include="GiayToBLL.cs" />
+    <Compile Include="GT_DOCB.cs" />
+    <Compile Include="NguoiBanBLL.cs" />
+    <Compile Include="PhieuDangKyBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QCBangBLL.cs" />
+    <Compile Include="QCBaoBLL.cs" />
+    <Compile Include="QCToBuomBLL.cs" />
+    <Compile Include="ThamSoBLL.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
