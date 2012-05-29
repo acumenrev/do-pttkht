@@ -38,6 +38,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BLL">
+      <HintPath>..\BLL\bin\Debug\BLL.dll</HintPath>
+    </Reference>
+    <Reference Include="DAL">
+      <HintPath>..\DAL\bin\Debug\DAL.dll</HintPath>
+    </Reference>
     <Reference Include="DevComponents.DotNetBar2, Version=9.3.0.0, Culture=neutral, PublicKeyToken=c39c3242a43eee2b, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -57,8 +63,146 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormBaoCao\frmDiaOcTheoTungKhachHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBaoCao\frmDiaOcTheoTungKhachHang.Designer.cs">
+      <DependentUpon>frmDiaOcTheoTungKhachHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormBaoCao\frmKHSuDungDV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBaoCao\frmKHSuDungDV.Designer.cs">
+      <DependentUpon>frmKHSuDungDV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormBaoCao\frmTheoTungLoaiQuangCao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBaoCao\frmTheoTungLoaiQuangCao.Designer.cs">
+      <DependentUpon>frmTheoTungLoaiQuangCao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormBaoCao\frmThongKeDoanhThu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBaoCao\frmThongKeDoanhThu.Designer.cs">
+      <DependentUpon>frmThongKeDoanhThu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCSDL\frmBao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCSDL\frmBao.Designer.cs">
+      <DependentUpon>frmBao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCSDL\frmDiaOc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCSDL\frmDiaOc.Designer.cs">
+      <DependentUpon>frmDiaOc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCSDL\frmGiayTo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCSDL\frmGiayTo.Designer.cs">
+      <DependentUpon>frmGiayTo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCSDL\frmNguoiBan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCSDL\frmNguoiBan.Designer.cs">
+      <DependentUpon>frmNguoiBan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormHeThong\frmCauHinhLaiCSDL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHeThong\frmCauHinhLaiCSDL.Designer.cs">
+      <DependentUpon>frmCauHinhLaiCSDL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormHeThong\frmQuyDinh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHeThong\frmQuyDinh.Designer.cs">
+      <DependentUpon>frmQuyDinh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormHeThong\frmThongTinNguoiSuDung.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHeThong\frmThongTinNguoiSuDung.Designer.cs">
+      <DependentUpon>frmThongTinNguoiSuDung.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLapPhieu\frmPhieuDangKy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLapPhieu\frmPhieuDangKy.Designer.cs">
+      <DependentUpon>frmPhieuDangKy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLapPhieu\frmPhieuGiaHan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLapPhieu\frmPhieuGiaHan.Designer.cs">
+      <DependentUpon>frmPhieuGiaHan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmServer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmServer.Designer.cs">
+      <DependentUpon>frmServer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmThongTinChuongTrinh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmThongTinChuongTrinh.Designer.cs">
+      <DependentUpon>frmThongTinChuongTrinh.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormBaoCao\frmDiaOcTheoTungKhachHang.resx">
+      <DependentUpon>frmDiaOcTheoTungKhachHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormBaoCao\frmKHSuDungDV.resx">
+      <DependentUpon>frmKHSuDungDV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormBaoCao\frmTheoTungLoaiQuangCao.resx">
+      <DependentUpon>frmTheoTungLoaiQuangCao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormBaoCao\frmThongKeDoanhThu.resx">
+      <DependentUpon>frmThongKeDoanhThu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCSDL\frmBao.resx">
+      <DependentUpon>frmBao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCSDL\frmDiaOc.resx">
+      <DependentUpon>frmDiaOc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCSDL\frmGiayTo.resx">
+      <DependentUpon>frmGiayTo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCSDL\frmNguoiBan.resx">
+      <DependentUpon>frmNguoiBan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormHeThong\frmCauHinhLaiCSDL.resx">
+      <DependentUpon>frmCauHinhLaiCSDL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormHeThong\frmQuyDinh.resx">
+      <DependentUpon>frmQuyDinh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormHeThong\frmThongTinNguoiSuDung.resx">
+      <DependentUpon>frmThongTinNguoiSuDung.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLapPhieu\frmPhieuDangKy.resx">
+      <DependentUpon>frmPhieuDangKy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLapPhieu\frmPhieuGiaHan.resx">
+      <DependentUpon>frmPhieuGiaHan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmServer.resx">
+      <DependentUpon>frmServer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmThongTinChuongTrinh.resx">
+      <DependentUpon>frmThongTinChuongTrinh.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -78,6 +222,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
