@@ -76,6 +76,7 @@
             // 
             // txtTongDoanhThu
             // 
+            this.txtTongDoanhThu.Enabled = false;
             this.txtTongDoanhThu.Location = new System.Drawing.Point(101, 302);
             this.txtTongDoanhThu.Name = "txtTongDoanhThu";
             this.txtTongDoanhThu.Size = new System.Drawing.Size(100, 20);
@@ -98,6 +99,7 @@
             this.btnDong.TabIndex = 6;
             this.btnDong.Text = "Đóng";
             this.btnDong.UseVisualStyleBackColor = true;
+            this.btnDong.Click += new System.EventHandler(this.btnDong_Click);
             // 
             // frmThongKeDoanhThu
             // 

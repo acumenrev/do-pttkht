@@ -56,6 +56,7 @@
             // 
             // txtPhone
             // 
+            this.txtPhone.Enabled = false;
             this.txtPhone.Location = new System.Drawing.Point(90, 310);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(100, 20);
@@ -63,6 +64,7 @@
             // 
             // txtDiaChi
             // 
+            this.txtDiaChi.Enabled = false;
             this.txtDiaChi.Location = new System.Drawing.Point(90, 284);
             this.txtDiaChi.Name = "txtDiaChi";
             this.txtDiaChi.Size = new System.Drawing.Size(334, 20);
@@ -70,6 +72,7 @@
             // 
             // txtHoTen
             // 
+            this.txtHoTen.Enabled = false;
             this.txtHoTen.Location = new System.Drawing.Point(240, 254);
             this.txtHoTen.Name = "txtHoTen";
             this.txtHoTen.Size = new System.Drawing.Size(100, 20);
@@ -77,6 +80,7 @@
             // 
             // txtMaNguoiBan
             // 
+            this.txtMaNguoiBan.Enabled = false;
             this.txtMaNguoiBan.Location = new System.Drawing.Point(90, 254);
             this.txtMaNguoiBan.Name = "txtMaNguoiBan";
             this.txtMaNguoiBan.Size = new System.Drawing.Size(100, 20);
@@ -171,6 +175,7 @@
             // 
             // dtpTu
             // 
+            this.dtpTu.Enabled = false;
             this.dtpTu.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpTu.Location = new System.Drawing.Point(90, 338);
             this.dtpTu.Name = "dtpTu";
@@ -196,6 +201,7 @@
             // 
             // txtGiaTien
             // 
+            this.txtGiaTien.Enabled = false;
             this.txtGiaTien.Location = new System.Drawing.Point(90, 364);
             this.txtGiaTien.Name = "txtGiaTien";
             this.txtGiaTien.Size = new System.Drawing.Size(100, 20);
@@ -236,6 +242,7 @@
             this.btnDong.TabIndex = 35;
             this.btnDong.Text = "Đóng";
             this.btnDong.UseVisualStyleBackColor = true;
+            this.btnDong.Click += new System.EventHandler(this.btnDong_Click);
             // 
             // frmPhieuGiaHan
             // 

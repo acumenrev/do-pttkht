@@ -44,6 +44,19 @@ namespace QLDIAOC.FormCSDL
             base.WndProc(ref m);
         }
 
+        private void btnDong_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         #endregion
+
+        private void txtPhone_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

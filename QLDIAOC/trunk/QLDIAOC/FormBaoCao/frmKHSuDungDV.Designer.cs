@@ -33,6 +33,7 @@
             this.dtpKHSuDungDV = new System.Windows.Forms.DateTimePicker();
             this.dgvKetQua = new System.Windows.Forms.DataGridView();
             this.btnInPhieu = new System.Windows.Forms.Button();
+            this.btnDong = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKetQua)).BeginInit();
             this.SuspendLayout();
             // 
@@ -67,17 +68,29 @@
             // 
             // btnInPhieu
             // 
-            this.btnInPhieu.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnInPhieu.Location = new System.Drawing.Point(253, 279);
+            this.btnInPhieu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnInPhieu.Location = new System.Drawing.Point(15, 279);
             this.btnInPhieu.Name = "btnInPhieu";
             this.btnInPhieu.Size = new System.Drawing.Size(75, 23);
             this.btnInPhieu.TabIndex = 3;
             this.btnInPhieu.Text = "In phiếu";
             this.btnInPhieu.UseVisualStyleBackColor = true;
             // 
+            // btnDong
+            // 
+            this.btnDong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnDong.Location = new System.Drawing.Point(96, 279);
+            this.btnDong.Name = "btnDong";
+            this.btnDong.Size = new System.Drawing.Size(75, 23);
+            this.btnDong.TabIndex = 4;
+            this.btnDong.Text = "Đóng";
+            this.btnDong.UseVisualStyleBackColor = true;
+            this.btnDong.Click += new System.EventHandler(this.btnDong_Click);
+            // 
             // frmKHSuDungDV
             // 
             this.ClientSize = new System.Drawing.Size(558, 314);
+            this.Controls.Add(this.btnDong);
             this.Controls.Add(this.btnInPhieu);
             this.Controls.Add(this.dgvKetQua);
             this.Controls.Add(this.dtpKHSuDungDV);
@@ -98,5 +111,6 @@
         private System.Windows.Forms.DateTimePicker dtpKHSuDungDV;
         private System.Windows.Forms.DataGridView dgvKetQua;
         private System.Windows.Forms.Button btnInPhieu;
+        private System.Windows.Forms.Button btnDong;
     }
 }

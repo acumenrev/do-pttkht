@@ -44,6 +44,11 @@ namespace QLDIAOC.FormCSDL
             base.WndProc(ref m);
         }
 
+        private void btnDong_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         #endregion
     }
 }

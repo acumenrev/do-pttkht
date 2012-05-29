@@ -133,6 +133,7 @@
             this.btnDong.TabIndex = 9;
             this.btnDong.Text = "Đóng";
             this.btnDong.UseVisualStyleBackColor = true;
+            this.btnDong.Click += new System.EventHandler(this.btnDong_Click);
             // 
             // frmTheoTungLoaiQuangCao
             // 

@@ -47,12 +47,12 @@
             // 
             this.btnThoat.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnThoat.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnThoat.Location = new System.Drawing.Point(244, 149);
+            this.btnThoat.Location = new System.Drawing.Point(211, 149);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(75, 23);
             this.btnThoat.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnThoat.TabIndex = 23;
-            this.btnThoat.Text = "Thoát";
+            this.btnThoat.Text = "Đóng";
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
             // btnLuu

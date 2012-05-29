@@ -42,8 +42,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.txtMaNB = new System.Windows.Forms.TextBox();
-            this.txtMaDO = new System.Windows.Forms.TextBox();
             this.cbBang = new System.Windows.Forms.CheckBox();
             this.cbToBuom = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -84,6 +82,9 @@
             this.btnThem = new System.Windows.Forms.Button();
             this.txtTongTien = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
+            this.btnDong = new System.Windows.Forms.Button();
+            this.cbbMaNB = new System.Windows.Forms.ComboBox();
+            this.cbbMaDiaOc = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKetQua)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -216,22 +217,6 @@
             this.textBox2.Size = new System.Drawing.Size(100, 20);
             this.textBox2.TabIndex = 16;
             // 
-            // txtMaNB
-            // 
-            this.txtMaNB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtMaNB.Location = new System.Drawing.Point(289, 189);
-            this.txtMaNB.Name = "txtMaNB";
-            this.txtMaNB.Size = new System.Drawing.Size(100, 20);
-            this.txtMaNB.TabIndex = 18;
-            // 
-            // txtMaDO
-            // 
-            this.txtMaDO.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtMaDO.Location = new System.Drawing.Point(484, 189);
-            this.txtMaDO.Name = "txtMaDO";
-            this.txtMaDO.Size = new System.Drawing.Size(100, 20);
-            this.txtMaDO.TabIndex = 20;
-            // 
             // cbBang
             // 
             this.cbBang.AutoSize = true;
@@ -298,6 +283,7 @@
             this.txtGiaTienBang.Name = "txtGiaTienBang";
             this.txtGiaTienBang.Size = new System.Drawing.Size(100, 20);
             this.txtGiaTienBang.TabIndex = 32;
+            this.txtGiaTienBang.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtGiaTienBang_KeyPress);
             // 
             // label13
             // 
@@ -314,6 +300,7 @@
             this.txtSoLuongBang.Name = "txtSoLuongBang";
             this.txtSoLuongBang.Size = new System.Drawing.Size(65, 20);
             this.txtSoLuongBang.TabIndex = 30;
+            this.txtSoLuongBang.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoLuongBang_KeyPress);
             // 
             // label12
             // 
@@ -398,6 +385,7 @@
             this.txtGiaTienToBuom.Name = "txtGiaTienToBuom";
             this.txtGiaTienToBuom.Size = new System.Drawing.Size(100, 20);
             this.txtGiaTienToBuom.TabIndex = 40;
+            this.txtGiaTienToBuom.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtGiaTienToBuom_KeyPress);
             // 
             // label16
             // 
@@ -414,6 +402,7 @@
             this.txtSoLuongToBuom.Name = "txtSoLuongToBuom";
             this.txtSoLuongToBuom.Size = new System.Drawing.Size(65, 20);
             this.txtSoLuongToBuom.TabIndex = 38;
+            this.txtSoLuongToBuom.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoLuongToBuom_KeyPress);
             // 
             // label17
             // 
@@ -465,6 +454,7 @@
             this.txtGiaTienBao.Name = "txtGiaTienBao";
             this.txtGiaTienBao.Size = new System.Drawing.Size(100, 20);
             this.txtGiaTienBao.TabIndex = 42;
+            this.txtGiaTienBao.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtGiaTienBao_KeyPress);
             // 
             // label21
             // 
@@ -566,7 +556,7 @@
             // btnSua
             // 
             this.btnSua.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnSua.Location = new System.Drawing.Point(646, 548);
+            this.btnSua.Location = new System.Drawing.Point(555, 548);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(75, 23);
             this.btnSua.TabIndex = 33;
@@ -576,7 +566,7 @@
             // btnXoa
             // 
             this.btnXoa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnXoa.Location = new System.Drawing.Point(565, 548);
+            this.btnXoa.Location = new System.Drawing.Point(474, 548);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(75, 23);
             this.btnXoa.TabIndex = 32;
@@ -586,7 +576,7 @@
             // btnThem
             // 
             this.btnThem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnThem.Location = new System.Drawing.Point(484, 548);
+            this.btnThem.Location = new System.Drawing.Point(393, 548);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(75, 23);
             this.btnThem.TabIndex = 31;
@@ -596,6 +586,7 @@
             // txtTongTien
             // 
             this.txtTongTien.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtTongTien.Enabled = false;
             this.txtTongTien.Location = new System.Drawing.Point(76, 545);
             this.txtTongTien.Name = "txtTongTien";
             this.txtTongTien.Size = new System.Drawing.Size(100, 20);
@@ -611,9 +602,43 @@
             this.label22.TabIndex = 43;
             this.label22.Text = "Tống tiền";
             // 
+            // btnDong
+            // 
+            this.btnDong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnDong.Location = new System.Drawing.Point(639, 548);
+            this.btnDong.Name = "btnDong";
+            this.btnDong.Size = new System.Drawing.Size(75, 23);
+            this.btnDong.TabIndex = 45;
+            this.btnDong.Text = "Đóng";
+            this.btnDong.UseVisualStyleBackColor = true;
+            this.btnDong.Click += new System.EventHandler(this.btnDong_Click);
+            // 
+            // cbbMaNB
+            // 
+            this.cbbMaNB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.cbbMaNB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbMaNB.FormattingEnabled = true;
+            this.cbbMaNB.Location = new System.Drawing.Point(289, 188);
+            this.cbbMaNB.Name = "cbbMaNB";
+            this.cbbMaNB.Size = new System.Drawing.Size(100, 21);
+            this.cbbMaNB.TabIndex = 46;
+            // 
+            // cbbMaDiaOc
+            // 
+            this.cbbMaDiaOc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.cbbMaDiaOc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbMaDiaOc.FormattingEnabled = true;
+            this.cbbMaDiaOc.Location = new System.Drawing.Point(484, 188);
+            this.cbbMaDiaOc.Name = "cbbMaDiaOc";
+            this.cbbMaDiaOc.Size = new System.Drawing.Size(100, 21);
+            this.cbbMaDiaOc.TabIndex = 47;
+            // 
             // frmPhieuDangKy
             // 
             this.ClientSize = new System.Drawing.Size(726, 583);
+            this.Controls.Add(this.cbbMaDiaOc);
+            this.Controls.Add(this.cbbMaNB);
+            this.Controls.Add(this.btnDong);
             this.Controls.Add(this.txtTongTien);
             this.Controls.Add(this.label22);
             this.Controls.Add(this.btnSua);
@@ -625,8 +650,6 @@
             this.Controls.Add(this.group8);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.txtMaDO);
-            this.Controls.Add(this.txtMaNB);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label8);
@@ -671,8 +694,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox txtMaNB;
-        private System.Windows.Forms.TextBox txtMaDO;
         private System.Windows.Forms.CheckBox cbBang;
         private System.Windows.Forms.CheckBox cbToBuom;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -713,5 +734,8 @@
         private System.Windows.Forms.Button btnThem;
         private System.Windows.Forms.TextBox txtTongTien;
         private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Button btnDong;
+        private System.Windows.Forms.ComboBox cbbMaNB;
+        private System.Windows.Forms.ComboBox cbbMaDiaOc;
     }
 }

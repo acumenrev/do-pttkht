@@ -187,6 +187,7 @@
             this.txtGiaCoHinh.Name = "txtGiaCoHinh";
             this.txtGiaCoHinh.Size = new System.Drawing.Size(100, 20);
             this.txtGiaCoHinh.TabIndex = 23;
+            this.txtGiaCoHinh.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtGiaCoHinh_KeyPress);
             // 
             // txtGiaKhongHinh
             // 
@@ -194,6 +195,7 @@
             this.txtGiaKhongHinh.Name = "txtGiaKhongHinh";
             this.txtGiaKhongHinh.Size = new System.Drawing.Size(100, 20);
             this.txtGiaKhongHinh.TabIndex = 24;
+            this.txtGiaKhongHinh.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtGiaKhongHinh_KeyPress);
             // 
             // btnDong
             // 

@@ -46,5 +46,10 @@ namespace QLDIAOC.FormBaoCao
         }
 
         #endregion
+
+        private void btnDong_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

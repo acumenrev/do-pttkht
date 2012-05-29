@@ -153,6 +153,7 @@
             this.btnDong.TabIndex = 12;
             this.btnDong.Text = "Đóng";
             this.btnDong.UseVisualStyleBackColor = true;
+            this.btnDong.Click += new System.EventHandler(this.btnDong_Click);
             // 
             // frmGiayTo
             // 

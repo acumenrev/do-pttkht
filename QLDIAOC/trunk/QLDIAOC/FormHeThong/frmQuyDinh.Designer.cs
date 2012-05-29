@@ -37,7 +37,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.btnCapNhat = new System.Windows.Forms.Button();
-            this.btnThoat = new System.Windows.Forms.Button();
+            this.btnDong = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBangThamSo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -107,20 +107,21 @@
             this.btnCapNhat.Text = "Cập nhật";
             this.btnCapNhat.UseVisualStyleBackColor = true;
             // 
-            // btnThoat
+            // btnDong
             // 
-            this.btnThoat.Location = new System.Drawing.Point(170, 357);
-            this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(75, 23);
-            this.btnThoat.TabIndex = 8;
-            this.btnThoat.Text = "Thoát";
-            this.btnThoat.UseVisualStyleBackColor = true;
+            this.btnDong.Location = new System.Drawing.Point(170, 357);
+            this.btnDong.Name = "btnDong";
+            this.btnDong.Size = new System.Drawing.Size(75, 23);
+            this.btnDong.TabIndex = 8;
+            this.btnDong.Text = "Đóng";
+            this.btnDong.UseVisualStyleBackColor = true;
+            this.btnDong.Click += new System.EventHandler(this.btnDong_Click);
             // 
             // frmQuyDinh
             // 
             this.ClientSize = new System.Drawing.Size(442, 392);
             this.ControlBox = false;
-            this.Controls.Add(this.btnThoat);
+            this.Controls.Add(this.btnDong);
             this.Controls.Add(this.btnCapNhat);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.label3);
@@ -150,6 +151,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Button btnCapNhat;
-        private System.Windows.Forms.Button btnThoat;
+        private System.Windows.Forms.Button btnDong;
     }
 }

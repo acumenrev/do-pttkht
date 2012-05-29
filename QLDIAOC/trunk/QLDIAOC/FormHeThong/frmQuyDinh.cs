@@ -29,6 +29,11 @@ namespace QLDIAOC.FormHeThong
 
         #region Methods
 
+        private void btnDong_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         // Ngan khong cho phong to cua so khi bam doi chuot vao title bar
         protected override void WndProc(ref Message m)
         {
@@ -45,6 +50,6 @@ namespace QLDIAOC.FormHeThong
             base.WndProc(ref m);
         }
 
-        #endregion
+        #endregion    
     }
 }
