@@ -6,6 +6,7 @@ using System.Data;
 using System.Data.Sql;
 using System.Data.SqlClient;
 using DAL;
+using System.Windows.Forms;
 
 namespace BLL
 {
@@ -52,12 +53,15 @@ namespace BLL
                 m_cmd.Parameters.Add("@MaNguoiBan", SqlDbType.Char).Value = maNguoiBan;
                 m_cmd.Parameters.Add("@HoTen", SqlDbType.NVarChar).Value = hoTen;
                 m_cmd.Parameters.Add("@DiaChi", SqlDbType.NVarChar).Value = diaChi;
-                m_cmd.Parameters.Add("@Email", SqlDbType.NVarChar).Value = diaChi;
+                m_cmd.Parameters.Add("@Email", SqlDbType.NVarChar).Value = email;
                 m_cmd.Parameters.Add("@Phone", SqlDbType.NVarChar).Value = phone;
                 // thực thi câu truy vấn
                 m_cmd.ExecuteNonQuery();
             }
-            catch { }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
             finally
             {
                 // đóng kết nối và xóa dữ liệu tạm
@@ -82,12 +86,15 @@ namespace BLL
                 m_cmd.Parameters.Add("@MaNguoiBan", SqlDbType.Char).Value = maNguoiBan;
                 m_cmd.Parameters.Add("@HoTen", SqlDbType.NVarChar).Value = hoTen;
                 m_cmd.Parameters.Add("@DiaChi", SqlDbType.NVarChar).Value = diaChi;
-                m_cmd.Parameters.Add("@Email", SqlDbType.NVarChar).Value = diaChi;
+                m_cmd.Parameters.Add("@Email", SqlDbType.NVarChar).Value = email;
                 m_cmd.Parameters.Add("@Phone", SqlDbType.NVarChar).Value = phone;
                 // thực thi câu truy vấn
                 m_cmd.ExecuteNonQuery();
             }
-            catch { }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
             finally
             {
                 // đóng kết nối và xóa dữ liệu tạm
@@ -113,7 +120,10 @@ namespace BLL
                 // thực thi câu truy vấn
                 m_cmd.ExecuteNonQuery();
             }
-            catch { }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
             finally
             {
                 // đóng kết nối và xóa dữ liệu tạm

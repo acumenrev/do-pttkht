@@ -118,6 +118,7 @@ namespace QLDIAOC.FormCSDL
             {
                 m_bll.Insert(txtMaNguoiBan.Text, txtHoTen.Text, txtDiaChi.Text, txtEmail.Text, txtPhone.Text);
                 frmNguoiBan_Load(sender, e);
+                MessageBox.Show("Thêm thành công");
             }
             else
             {
@@ -131,6 +132,7 @@ namespace QLDIAOC.FormCSDL
             {
                 m_bll.Delete(txtMaNguoiBan.Text);
                 frmNguoiBan_Load(sender, e);
+                MessageBox.Show("Xóa thành công");
             }
             else
             {
@@ -140,6 +142,7 @@ namespace QLDIAOC.FormCSDL
 
         private void btnSua_Click(object sender, EventArgs e)
         {
+            ClearDataGridView();
             if (txtDiaChi.Text.Trim() != "" &&
                 txtEmail.Text.Trim() != "" &&
                 txtHoTen.Text.Trim() != "" &&
@@ -148,6 +151,7 @@ namespace QLDIAOC.FormCSDL
             {
                 m_bll.Update(txtMaNguoiBan.Text, txtHoTen.Text, txtDiaChi.Text, txtEmail.Text, txtPhone.Text);
                 frmNguoiBan_Load(sender, e);
+                MessageBox.Show("Cập nhật thành công");
             }
             else
             {

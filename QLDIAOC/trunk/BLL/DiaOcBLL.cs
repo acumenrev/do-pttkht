@@ -6,6 +6,7 @@ using System.Data;
 using System.Data.Sql;
 using System.Data.SqlClient;
 using DAL;
+using System.Windows.Forms;
 
 namespace BLL
 {
@@ -43,7 +44,7 @@ namespace BLL
                         string phuong, string quanHuyen, string maNguoiBan, 
                         string huongNha, string moTaChiTiet, int namXayNha, 
                         string viTri, int soTang, string loaiNha, 
-                        string loaiNen, float dienTichKhuonVien, float dienTichSuDung, 
+                        string loaiNen, string dienTichKhuonVien, string dienTichSuDung, 
                         string daBan, decimal giaBan)
         {
             try
@@ -67,14 +68,17 @@ namespace BLL
                 m_cmd.Parameters.Add("@SoTang", SqlDbType.Int).Value = soTang;
                 m_cmd.Parameters.Add("@LoaiNha", SqlDbType.NVarChar).Value = loaiNha;
                 m_cmd.Parameters.Add("@LoaiNen", SqlDbType.NVarChar).Value = loaiNen;
-                m_cmd.Parameters.Add("@DienTichKhuonVien", SqlDbType.Float).Value = dienTichKhuonVien;
-                m_cmd.Parameters.Add("@DienTichSuDung", SqlDbType.Float).Value = dienTichSuDung;
+                m_cmd.Parameters.Add("@DienTichKhuonVien", SqlDbType.NVarChar).Value = dienTichKhuonVien;
+                m_cmd.Parameters.Add("@DienTichSuDung", SqlDbType.NVarChar).Value = dienTichSuDung;
                 m_cmd.Parameters.Add("@DaBan", SqlDbType.NVarChar).Value = daBan;
                 m_cmd.Parameters.Add("@GiaBan", SqlDbType.Decimal).Value = giaBan;
                 // thực thi câu truy vấn
                 m_cmd.ExecuteNonQuery();
             }
-            catch { }
+            catch (Exception ex)
+            { 
+                MessageBox.Show(ex.Message);
+            }
             finally
             {
                 // đóng kết nối và xóa dữ liệu tạm
@@ -90,7 +94,7 @@ namespace BLL
                         string phuong, string quanHuyen, string maNguoiBan,
                         string huongNha, string moTaChiTiet, int namXayNha,
                         string viTri, int soTang, string loaiNha,
-                        string loaiNen, float dienTichKhuonVien, float dienTichSuDung,
+                        string loaiNen, string dienTichKhuonVien, string dienTichSuDung,
                         string daBan, decimal giaBan)
         {
             try
@@ -114,8 +118,8 @@ namespace BLL
                 m_cmd.Parameters.Add("@SoTang", SqlDbType.Int).Value = soTang;
                 m_cmd.Parameters.Add("@LoaiNha", SqlDbType.NVarChar).Value = loaiNha;
                 m_cmd.Parameters.Add("@LoaiNen", SqlDbType.NVarChar).Value = loaiNen;
-                m_cmd.Parameters.Add("@DienTichKhuonVien", SqlDbType.Float).Value = dienTichKhuonVien;
-                m_cmd.Parameters.Add("@DienTichSuDung", SqlDbType.Float).Value = dienTichSuDung;
+                m_cmd.Parameters.Add("@DienTichKhuonVien", SqlDbType.NVarChar).Value = dienTichKhuonVien;
+                m_cmd.Parameters.Add("@DienTichSuDung", SqlDbType.NVarChar).Value = dienTichSuDung;
                 m_cmd.Parameters.Add("@DaBan", SqlDbType.NVarChar).Value = daBan;
                 m_cmd.Parameters.Add("@GiaBan", SqlDbType.Decimal).Value = giaBan;
                 // thực thi câu truy vấn

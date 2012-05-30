@@ -172,6 +172,7 @@ namespace QLDIAOC.FormCSDL
             {
                 m_bll.Insert(txtMaBao.Text, txtTenBao.Text, txtNgayPhatHanh.Text, decimal.Parse(txtGiaCoHinh.Text), decimal.Parse(txtGiaKhongHinh.Text));
                 frmBao_Load(sender, e);
+                MessageBox.Show("Thêm thành công");
             }
             else
             {
@@ -185,6 +186,7 @@ namespace QLDIAOC.FormCSDL
             {
                 m_bll.Delete(txtMaBao.Text);
                 frmBao_Load(sender, e);
+                MessageBox.Show("Xóa thành công");
             }
             else
             {
@@ -200,6 +202,7 @@ namespace QLDIAOC.FormCSDL
             {
                 m_bll.Update(txtMaBao.Text, txtTenBao.Text, txtNgayPhatHanh.Text, decimal.Parse(txtGiaCoHinh.Text), decimal.Parse(txtGiaKhongHinh.Text));
                 frmBao_Load(sender, e);
+                MessageBox.Show("Cập nhật thành công");
             }
             else
             {

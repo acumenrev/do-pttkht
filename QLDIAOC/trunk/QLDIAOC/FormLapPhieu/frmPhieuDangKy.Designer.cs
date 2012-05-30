@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPhieuDangKy));
             this.dgvKetQua = new System.Windows.Forms.DataGridView();
             this.txtTim = new System.Windows.Forms.TextBox();
@@ -40,11 +41,12 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtNoiDungQuangCao = new System.Windows.Forms.TextBox();
+            this.txtMaPhieuDangKy = new System.Windows.Forms.TextBox();
             this.cbBang = new System.Windows.Forms.CheckBox();
             this.cbToBuom = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label23 = new System.Windows.Forms.Label();
             this.btnTaoMoiQCBang = new System.Windows.Forms.Button();
             this.txtMaQCBang = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
@@ -59,6 +61,7 @@
             this.cbbLoaiBang = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label24 = new System.Windows.Forms.Label();
             this.btnTaoMoiQCToBuom = new System.Windows.Forms.Button();
             this.txtGiaTienToBuom = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
@@ -67,6 +70,9 @@
             this.txtMaQCToBuom = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.group8 = new System.Windows.Forms.GroupBox();
+            this.cbCoHinh = new System.Windows.Forms.CheckBox();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
             this.btnTaoMoiQCBao = new System.Windows.Forms.Button();
             this.txtGiaTienBao = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
@@ -89,14 +95,22 @@
             this.cbbMaNB = new System.Windows.Forms.ComboBox();
             this.cbbMaDiaOc = new System.Windows.Forms.ComboBox();
             this.btnTaoMoiMaPDK = new System.Windows.Forms.Button();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
+            this.qLDODataSet = new QLDIAOC.QLDODataSet();
+            this.nGUOIBANBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.nGUOIBANTableAdapter = new QLDIAOC.QLDODataSetTableAdapters.NGUOIBANTableAdapter();
+            this.dIAOCCBBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dIAOCCBTableAdapter = new QLDIAOC.QLDODataSetTableAdapters.DIAOCCBTableAdapter();
+            this.bAOBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bAOTableAdapter = new QLDIAOC.QLDODataSetTableAdapters.BAOTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKetQua)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.group8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.qLDODataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nGUOIBANBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dIAOCCBBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bAOBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvKetQua
@@ -108,8 +122,10 @@
             this.dgvKetQua.MultiSelect = false;
             this.dgvKetQua.Name = "dgvKetQua";
             this.dgvKetQua.ReadOnly = true;
+            this.dgvKetQua.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvKetQua.Size = new System.Drawing.Size(710, 142);
             this.dgvKetQua.TabIndex = 7;
+            this.dgvKetQua.SelectionChanged += new System.EventHandler(this.dgvKetQua_SelectionChanged);
             // 
             // txtTim
             // 
@@ -117,15 +133,16 @@
             this.txtTim.Name = "txtTim";
             this.txtTim.Size = new System.Drawing.Size(545, 20);
             this.txtTim.TabIndex = 6;
+            this.txtTim.TextChanged += new System.EventHandler(this.txtTim_TextChanged);
             // 
             // cbbTimTheo
             // 
             this.cbbTimTheo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbTimTheo.FormattingEnabled = true;
             this.cbbTimTheo.Items.AddRange(new object[] {
-            "Địa chỉ",
-            "Họ tên",
-            "Mã người bán"});
+            "Mã địa ốc",
+            "Mã người bán",
+            "Mã phiếu đăng ký"});
             this.cbbTimTheo.Location = new System.Drawing.Point(42, 6);
             this.cbbTimTheo.Name = "cbbTimTheo";
             this.cbbTimTheo.Size = new System.Drawing.Size(121, 21);
@@ -210,22 +227,22 @@
             this.label8.TabIndex = 14;
             this.label8.Text = "Nội dung \r\nquảng cáo";
             // 
-            // textBox1
+            // txtNoiDungQuangCao
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.textBox1.Location = new System.Drawing.Point(100, 247);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(603, 55);
-            this.textBox1.TabIndex = 15;
+            this.txtNoiDungQuangCao.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtNoiDungQuangCao.Location = new System.Drawing.Point(100, 247);
+            this.txtNoiDungQuangCao.Multiline = true;
+            this.txtNoiDungQuangCao.Name = "txtNoiDungQuangCao";
+            this.txtNoiDungQuangCao.Size = new System.Drawing.Size(603, 55);
+            this.txtNoiDungQuangCao.TabIndex = 15;
             // 
-            // textBox2
+            // txtMaPhieuDangKy
             // 
-            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.textBox2.Location = new System.Drawing.Point(100, 189);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 16;
+            this.txtMaPhieuDangKy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtMaPhieuDangKy.Location = new System.Drawing.Point(100, 189);
+            this.txtMaPhieuDangKy.Name = "txtMaPhieuDangKy";
+            this.txtMaPhieuDangKy.Size = new System.Drawing.Size(100, 20);
+            this.txtMaPhieuDangKy.TabIndex = 16;
             // 
             // cbBang
             // 
@@ -273,6 +290,15 @@
             this.groupBox1.TabIndex = 25;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Quảng cáo bảng";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(175, 194);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(30, 13);
+            this.label23.TabIndex = 36;
+            this.label23.Text = "VNĐ";
             // 
             // btnTaoMoiQCBang
             // 
@@ -373,9 +399,12 @@
             // 
             this.cbbLoaiBang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbLoaiBang.FormattingEnabled = true;
+            this.cbbLoaiBang.Items.AddRange(new object[] {
+            "Bảng chiếu điện",
+            "Bảng thường"});
             this.cbbLoaiBang.Location = new System.Drawing.Point(69, 62);
             this.cbbLoaiBang.Name = "cbbLoaiBang";
-            this.cbbLoaiBang.Size = new System.Drawing.Size(93, 21);
+            this.cbbLoaiBang.Size = new System.Drawing.Size(100, 21);
             this.cbbLoaiBang.TabIndex = 24;
             // 
             // label9
@@ -405,6 +434,15 @@
             this.groupBox2.TabIndex = 26;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Quảng cáo tờ bướm";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(170, 100);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(30, 13);
+            this.label24.TabIndex = 42;
+            this.label24.Text = "VNĐ";
             // 
             // btnTaoMoiQCToBuom
             // 
@@ -471,6 +509,8 @@
             // group8
             // 
             this.group8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.group8.Controls.Add(this.cbCoHinh);
+            this.group8.Controls.Add(this.label27);
             this.group8.Controls.Add(this.label25);
             this.group8.Controls.Add(this.btnTaoMoiQCBao);
             this.group8.Controls.Add(this.txtGiaTienBao);
@@ -489,12 +529,40 @@
             this.group8.TabStop = false;
             this.group8.Text = "Quảng cáo báo";
             // 
+            // cbCoHinh
+            // 
+            this.cbCoHinh.AutoSize = true;
+            this.cbCoHinh.Location = new System.Drawing.Point(73, 138);
+            this.cbCoHinh.Name = "cbCoHinh";
+            this.cbCoHinh.Size = new System.Drawing.Size(62, 17);
+            this.cbCoHinh.TabIndex = 45;
+            this.cbCoHinh.Text = "Có hình";
+            this.cbCoHinh.UseVisualStyleBackColor = true;
+            this.cbCoHinh.CheckedChanged += new System.EventHandler(this.cbCoHinh_CheckedChanged);
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(6, 140);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(0, 13);
+            this.label27.TabIndex = 44;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(179, 164);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(30, 13);
+            this.label25.TabIndex = 43;
+            this.label25.Text = "VNĐ";
+            // 
             // btnTaoMoiQCBao
             // 
             this.btnTaoMoiQCBao.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnTaoMoiQCBao.Location = new System.Drawing.Point(73, 173);
+            this.btnTaoMoiQCBao.Location = new System.Drawing.Point(73, 191);
             this.btnTaoMoiQCBao.Name = "btnTaoMoiQCBao";
-            this.btnTaoMoiQCBao.Size = new System.Drawing.Size(75, 34);
+            this.btnTaoMoiQCBao.Size = new System.Drawing.Size(113, 21);
             this.btnTaoMoiQCBao.TabIndex = 43;
             this.btnTaoMoiQCBao.Text = "Tạo mới mã qc báo";
             this.btnTaoMoiQCBao.UseVisualStyleBackColor = true;
@@ -502,7 +570,7 @@
             // 
             // txtGiaTienBao
             // 
-            this.txtGiaTienBao.Location = new System.Drawing.Point(73, 147);
+            this.txtGiaTienBao.Location = new System.Drawing.Point(73, 161);
             this.txtGiaTienBao.Name = "txtGiaTienBao";
             this.txtGiaTienBao.ReadOnly = true;
             this.txtGiaTienBao.Size = new System.Drawing.Size(100, 20);
@@ -512,7 +580,7 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(6, 150);
+            this.label21.Location = new System.Drawing.Point(6, 168);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(43, 13);
             this.label21.TabIndex = 41;
@@ -537,12 +605,15 @@
             // 
             // cbbTenBao
             // 
+            this.cbbTenBao.DataSource = this.bAOBindingSource;
+            this.cbbTenBao.DisplayMember = "TenBao";
             this.cbbTenBao.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbTenBao.FormattingEnabled = true;
             this.cbbTenBao.Location = new System.Drawing.Point(73, 71);
             this.cbbTenBao.Name = "cbbTenBao";
             this.cbbTenBao.Size = new System.Drawing.Size(100, 21);
             this.cbbTenBao.TabIndex = 38;
+            this.cbbTenBao.ValueMember = "TenBao";
             // 
             // label19
             // 
@@ -597,6 +668,7 @@
             this.dtpNgayBatDau.Name = "dtpNgayBatDau";
             this.dtpNgayBatDau.Size = new System.Drawing.Size(100, 20);
             this.dtpNgayBatDau.TabIndex = 29;
+            this.dtpNgayBatDau.ValueChanged += new System.EventHandler(this.dtpNgayBatDau_ValueChanged);
             // 
             // dtpNgayKetThuc
             // 
@@ -606,6 +678,7 @@
             this.dtpNgayKetThuc.Name = "dtpNgayKetThuc";
             this.dtpNgayKetThuc.Size = new System.Drawing.Size(100, 20);
             this.dtpNgayKetThuc.TabIndex = 30;
+            this.dtpNgayKetThuc.ValueChanged += new System.EventHandler(this.dtpNgayKetThuc_ValueChanged);
             // 
             // btnSua
             // 
@@ -673,22 +746,28 @@
             // cbbMaNB
             // 
             this.cbbMaNB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.cbbMaNB.DataSource = this.nGUOIBANBindingSource;
+            this.cbbMaNB.DisplayMember = "MaNguoiBan";
             this.cbbMaNB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbMaNB.FormattingEnabled = true;
             this.cbbMaNB.Location = new System.Drawing.Point(289, 188);
             this.cbbMaNB.Name = "cbbMaNB";
             this.cbbMaNB.Size = new System.Drawing.Size(100, 21);
             this.cbbMaNB.TabIndex = 46;
+            this.cbbMaNB.ValueMember = "MaNguoiBan";
             // 
             // cbbMaDiaOc
             // 
             this.cbbMaDiaOc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.cbbMaDiaOc.DataSource = this.dIAOCCBBindingSource;
+            this.cbbMaDiaOc.DisplayMember = "MaDiaOcCB";
             this.cbbMaDiaOc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbMaDiaOc.FormattingEnabled = true;
             this.cbbMaDiaOc.Location = new System.Drawing.Point(484, 188);
             this.cbbMaDiaOc.Name = "cbbMaDiaOc";
             this.cbbMaDiaOc.Size = new System.Drawing.Size(100, 21);
             this.cbbMaDiaOc.TabIndex = 47;
+            this.cbbMaDiaOc.ValueMember = "MaDiaOcCB";
             // 
             // btnTaoMoiMaPDK
             // 
@@ -700,33 +779,6 @@
             this.btnTaoMoiMaPDK.UseVisualStyleBackColor = true;
             this.btnTaoMoiMaPDK.Click += new System.EventHandler(this.btnTaoMoiMaPDK_Click);
             // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(175, 194);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(30, 13);
-            this.label23.TabIndex = 36;
-            this.label23.Text = "VNĐ";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(170, 100);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(30, 13);
-            this.label24.TabIndex = 42;
-            this.label24.Text = "VNĐ";
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(179, 150);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(30, 13);
-            this.label25.TabIndex = 43;
-            this.label25.Text = "VNĐ";
-            // 
             // label26
             // 
             this.label26.AutoSize = true;
@@ -735,6 +787,38 @@
             this.label26.Size = new System.Drawing.Size(30, 13);
             this.label26.TabIndex = 49;
             this.label26.Text = "VNĐ";
+            // 
+            // qLDODataSet
+            // 
+            this.qLDODataSet.DataSetName = "QLDODataSet";
+            this.qLDODataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // nGUOIBANBindingSource
+            // 
+            this.nGUOIBANBindingSource.DataMember = "NGUOIBAN";
+            this.nGUOIBANBindingSource.DataSource = this.qLDODataSet;
+            // 
+            // nGUOIBANTableAdapter
+            // 
+            this.nGUOIBANTableAdapter.ClearBeforeFill = true;
+            // 
+            // dIAOCCBBindingSource
+            // 
+            this.dIAOCCBBindingSource.DataMember = "DIAOCCB";
+            this.dIAOCCBBindingSource.DataSource = this.qLDODataSet;
+            // 
+            // dIAOCCBTableAdapter
+            // 
+            this.dIAOCCBTableAdapter.ClearBeforeFill = true;
+            // 
+            // bAOBindingSource
+            // 
+            this.bAOBindingSource.DataMember = "BAO";
+            this.bAOBindingSource.DataSource = this.qLDODataSet;
+            // 
+            // bAOTableAdapter
+            // 
+            this.bAOTableAdapter.ClearBeforeFill = true;
             // 
             // frmPhieuDangKy
             // 
@@ -755,8 +839,8 @@
             this.Controls.Add(this.group8);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtMaPhieuDangKy);
+            this.Controls.Add(this.txtNoiDungQuangCao);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -780,6 +864,10 @@
             this.groupBox2.PerformLayout();
             this.group8.ResumeLayout(false);
             this.group8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.qLDODataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nGUOIBANBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dIAOCCBBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bAOBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -798,8 +886,8 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtNoiDungQuangCao;
+        private System.Windows.Forms.TextBox txtMaPhieuDangKy;
         private System.Windows.Forms.CheckBox cbBang;
         private System.Windows.Forms.CheckBox cbToBuom;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -851,5 +939,14 @@
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.CheckBox cbCoHinh;
+        private System.Windows.Forms.Label label27;
+        private QLDODataSet qLDODataSet;
+        private System.Windows.Forms.BindingSource nGUOIBANBindingSource;
+        private QLDODataSetTableAdapters.NGUOIBANTableAdapter nGUOIBANTableAdapter;
+        private System.Windows.Forms.BindingSource dIAOCCBBindingSource;
+        private QLDODataSetTableAdapters.DIAOCCBTableAdapter dIAOCCBTableAdapter;
+        private System.Windows.Forms.BindingSource bAOBindingSource;
+        private QLDODataSetTableAdapters.BAOTableAdapter bAOTableAdapter;
     }
 }

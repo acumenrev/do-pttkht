@@ -99,6 +99,7 @@ namespace QLDIAOC.FormCSDL
             {
                 m_bll.Insert(txtMaGiayTo.Text, txtTenGiayTo.Text, txtGhiChu.Text);
                 frmGiayTo_Load(sender, e);
+                MessageBox.Show("Thêm thành công");
             }
             else
             {
@@ -112,6 +113,7 @@ namespace QLDIAOC.FormCSDL
             {
                 m_bll.Delete(txtMaGiayTo.Text);
                 frmGiayTo_Load(sender, e);
+                MessageBox.Show("Xóa thành công");
             }
             else
             {
@@ -126,6 +128,7 @@ namespace QLDIAOC.FormCSDL
             {
                 m_bll.Update(txtMaGiayTo.Text, txtTenGiayTo.Text, txtGhiChu.Text);
                 frmGiayTo_Load(sender, e);
+                MessageBox.Show("Cập nhật thành công");
             }
             else
             {

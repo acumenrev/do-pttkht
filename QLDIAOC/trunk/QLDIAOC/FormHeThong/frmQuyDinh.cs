@@ -76,6 +76,8 @@ namespace QLDIAOC.FormHeThong
                 ClearDataGridView();
                 frmQuyDinh_Load(sender, e);
                 ClearInput();
+                MessageBox.Show("Cập nhật thành công");
+
             }
             else
             {

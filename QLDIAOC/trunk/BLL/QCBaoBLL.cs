@@ -140,7 +140,7 @@ namespace BLL
         {
             DataTable dt = new DataTable();
             dal.OpenConnection(m_conn);
-            m_cmd = new SqlCommand("QCBap_SelectMaPDK", m_conn);
+            m_cmd = new SqlCommand("QCBao_SelectMaPDK", m_conn);
             m_cmd.CommandType = CommandType.StoredProcedure;
 
             m_cmd.Parameters.Add("@Tu", SqlDbType.DateTime).Value = tu;
@@ -151,11 +151,26 @@ namespace BLL
             return dt;
         }
 
+        public DataTable SelectQC(string maPDK)
+        {
+            DataTable dt = new DataTable();
+            dal.OpenConnection(m_conn);
+            m_cmd = new SqlCommand("QCBang_SelectMaPDK", m_conn);
+            m_cmd.CommandType = CommandType.StoredProcedure;
+
+            m_cmd.Parameters.Add("@MaPDK", SqlDbType.Char).Value = maPDK;
+
+            m_da = new SqlDataAdapter(m_cmd);
+            m_da.Fill(dt);
+            return dt;
+        }
+
+
         public DataTable SelectGiaTien(DateTime tu, DateTime den)
         {
             DataTable dt = new DataTable();
             dal.OpenConnection(m_conn);
-            m_cmd = new SqlCommand("QCBap_SelectGiaTien", m_conn);
+            m_cmd = new SqlCommand("QCBao_SelectGiaTien", m_conn);
             m_cmd.CommandType = CommandType.StoredProcedure;
 
             m_cmd.Parameters.Add("@Tu", SqlDbType.DateTime).Value = tu;

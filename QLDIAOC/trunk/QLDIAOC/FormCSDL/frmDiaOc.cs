@@ -99,6 +99,8 @@ namespace QLDIAOC.FormCSDL
 
         private void frmDiaOc_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'qLDODataSet.NGUOIBAN' table. You can move, or remove it, as needed.
+            this.nGUOIBANTableAdapter.Fill(this.qLDODataSet.NGUOIBAN);
             lbTu.Visible = false;
             lbDen.Visible = false;
             txtTu.Visible = false;
@@ -223,11 +225,12 @@ namespace QLDIAOC.FormCSDL
                             int.Parse(txtSoTang.Text),
                             cbbLoaiNha.Text,
                             cbbLoaiNen.Text,
-                            float.Parse(txtDienTichKhuonVien.Text),
-                            float.Parse(txtDienTichSuDung.Text),
+                            txtDienTichKhuonVien.Text,
+                            txtDienTichSuDung.Text,
                             daBan,
                             decimal.Parse(txtGiaBan.Text));
                 frmDiaOc_Load(sender, e);
+                MessageBox.Show("Thêm thành công");
             }
             else
             {
@@ -241,6 +244,7 @@ namespace QLDIAOC.FormCSDL
             {
                 m_bll.Delete(txtMaDiaOc.Text);
                 frmDiaOc_Load(sender, e);
+                MessageBox.Show("Xóa thành công");
             }
             else
             {
@@ -288,11 +292,12 @@ namespace QLDIAOC.FormCSDL
                             int.Parse(txtSoTang.Text),
                             cbbLoaiNha.Text,
                             cbbLoaiNen.Text,
-                            float.Parse(txtDienTichKhuonVien.Text),
-                            float.Parse(txtDienTichSuDung.Text),
+                            txtDienTichKhuonVien.Text,
+                            txtDienTichSuDung.Text,
                             daBan,
                             decimal.Parse(txtGiaBan.Text));
                 frmDiaOc_Load(sender, e);
+                MessageBox.Show("Cập nhật thành công");
             }
             else
             {

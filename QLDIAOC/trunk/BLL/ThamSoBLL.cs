@@ -76,6 +76,19 @@ namespace BLL
             return m_dt;
         }
 
+        public DataTable SelectGiaTri(string tenThamSo)
+        {
+            DataTable dt = new DataTable();
+            dal.OpenConnection(m_conn);
+            m_cmd = new SqlCommand("ThamSo_SelectGiaTri", m_conn);
+            m_cmd.CommandType = CommandType.StoredProcedure;
+
+            m_cmd.Parameters.Add("@TenThamSo", SqlDbType.Char).Value = tenThamSo;
+            m_da = new SqlDataAdapter(m_cmd);
+            m_da.Fill(dt);
+            return dt;
+        }
+
         #endregion
     }
 }

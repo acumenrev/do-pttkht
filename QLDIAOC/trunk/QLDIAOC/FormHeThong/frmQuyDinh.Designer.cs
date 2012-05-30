@@ -48,6 +48,7 @@
             this.dgvBangThamSo.MultiSelect = false;
             this.dgvBangThamSo.Name = "dgvBangThamSo";
             this.dgvBangThamSo.ReadOnly = true;
+            this.dgvBangThamSo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvBangThamSo.Size = new System.Drawing.Size(417, 186);
             this.dgvBangThamSo.TabIndex = 0;
             this.dgvBangThamSo.SelectionChanged += new System.EventHandler(this.dgvBangThamSo_SelectionChanged);

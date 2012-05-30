@@ -68,6 +68,7 @@ namespace QLDIAOC.FormLapPhieu
                 if (dtpDen.Value <= dtpTu.Value)
                 {
                     MessageBox.Show("Xin xem lại giá trị ngày không hợp lý về tính logic", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Cập nhật thành công");
                 }
                 else
                 {
@@ -132,6 +133,11 @@ namespace QLDIAOC.FormLapPhieu
             txtMaNguoiBan.Text = "";
             txtMaPDK.Text = "";
             txtPhone.Text = "";
+        }
+
+        private void frmPhieuGiaHan_Load(object sender, EventArgs e)
+        {
+            dgvKetQua.DataSource = m_bll.Select();
         }
     }
 }

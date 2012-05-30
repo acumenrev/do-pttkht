@@ -6,6 +6,7 @@ using System.Data;
 using System.Data.Sql;
 using System.Data.SqlClient;
 using DAL;
+using System.Windows.Forms;
 
 namespace BLL
 {
@@ -55,7 +56,10 @@ namespace BLL
                 // thực thi câu truy vấn
                 m_cmd.ExecuteNonQuery();
             }
-            catch { }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
             finally
             {
                 // đóng kết nối và xóa dữ liệu tạm
@@ -83,7 +87,10 @@ namespace BLL
                 // thực thi câu truy vấn
                 m_cmd.ExecuteNonQuery();
             }
-            catch { }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
             finally
             {
                 // đóng kết nối và xóa dữ liệu tạm
@@ -109,7 +116,10 @@ namespace BLL
                 // thực thi câu truy vấn
                 m_cmd.ExecuteNonQuery();
             }
-            catch { }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
             finally
             {
                 // đóng kết nối và xóa dữ liệu tạm

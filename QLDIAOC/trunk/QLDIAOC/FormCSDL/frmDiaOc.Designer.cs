@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDiaOc));
             this.dgvKetQua = new System.Windows.Forms.DataGridView();
             this.txtTim = new System.Windows.Forms.TextBox();
@@ -69,6 +70,8 @@
             this.label24 = new System.Windows.Forms.Label();
             this.txtDienTichKhuonVien = new System.Windows.Forms.TextBox();
             this.cbbMaNguoiBan = new System.Windows.Forms.ComboBox();
+            this.nGUOIBANBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.qLDODataSet = new QLDIAOC.QLDODataSet();
             this.btnSua = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
@@ -82,9 +85,14 @@
             this.label18 = new System.Windows.Forms.Label();
             this.txtMoTaChiTiet = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
+            this.qLDODataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.nGUOIBANTableAdapter = new QLDIAOC.QLDODataSetTableAdapters.NGUOIBANTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKetQua)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nGUOIBANBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qLDODataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qLDODataSetBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvKetQua
@@ -96,6 +104,7 @@
             this.dgvKetQua.MultiSelect = false;
             this.dgvKetQua.Name = "dgvKetQua";
             this.dgvKetQua.ReadOnly = true;
+            this.dgvKetQua.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvKetQua.Size = new System.Drawing.Size(579, 209);
             this.dgvKetQua.TabIndex = 7;
             this.dgvKetQua.SelectionChanged += new System.EventHandler(this.dgvKetQua_SelectionChanged);
@@ -368,8 +377,13 @@
             // cbbLoaiNha
             // 
             this.cbbLoaiNha.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.cbbLoaiNha.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbLoaiNha.FormattingEnabled = true;
+            this.cbbLoaiNha.Items.AddRange(new object[] {
+            "Căn hộ",
+            "Chung cư",
+            "Biệt thự",
+            "Nhà cấp 3",
+            "Nhà cấp 4"});
             this.cbbLoaiNha.Location = new System.Drawing.Point(79, 407);
             this.cbbLoaiNha.Name = "cbbLoaiNha";
             this.cbbLoaiNha.Size = new System.Drawing.Size(100, 21);
@@ -378,8 +392,12 @@
             // cbbLoaiNen
             // 
             this.cbbLoaiNen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.cbbLoaiNen.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbLoaiNen.FormattingEnabled = true;
+            this.cbbLoaiNen.Items.AddRange(new object[] {
+            "Nền đất",
+            "Nền gạch",
+            "Nền xi măng",
+            "Nền gỗ"});
             this.cbbLoaiNen.Location = new System.Drawing.Point(79, 431);
             this.cbbLoaiNen.Name = "cbbLoaiNen";
             this.cbbLoaiNen.Size = new System.Drawing.Size(100, 21);
@@ -449,7 +467,6 @@
             // 
             // txtDienTichSuDung
             // 
-            this.txtDienTichSuDung.Enabled = false;
             this.txtDienTichSuDung.Location = new System.Drawing.Point(122, 38);
             this.txtDienTichSuDung.Name = "txtDienTichSuDung";
             this.txtDienTichSuDung.Size = new System.Drawing.Size(55, 20);
@@ -476,12 +493,25 @@
             // cbbMaNguoiBan
             // 
             this.cbbMaNguoiBan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.cbbMaNguoiBan.DataSource = this.nGUOIBANBindingSource;
+            this.cbbMaNguoiBan.DisplayMember = "MaNguoiBan";
             this.cbbMaNguoiBan.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbMaNguoiBan.FormattingEnabled = true;
             this.cbbMaNguoiBan.Location = new System.Drawing.Point(79, 278);
             this.cbbMaNguoiBan.Name = "cbbMaNguoiBan";
             this.cbbMaNguoiBan.Size = new System.Drawing.Size(100, 21);
             this.cbbMaNguoiBan.TabIndex = 30;
+            this.cbbMaNguoiBan.ValueMember = "MaNguoiBan";
+            // 
+            // nGUOIBANBindingSource
+            // 
+            this.nGUOIBANBindingSource.DataMember = "NGUOIBAN";
+            this.nGUOIBANBindingSource.DataSource = this.qLDODataSet;
+            // 
+            // qLDODataSet
+            // 
+            this.qLDODataSet.DataSetName = "QLDODataSet";
+            this.qLDODataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // btnSua
             // 
@@ -600,12 +630,22 @@
             // 
             // label19
             // 
+            this.label19.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label19.AutoSize = true;
             this.label19.Location = new System.Drawing.Point(185, 481);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(30, 13);
             this.label19.TabIndex = 43;
             this.label19.Text = "VNĐ";
+            // 
+            // qLDODataSetBindingSource
+            // 
+            this.qLDODataSetBindingSource.DataSource = this.qLDODataSet;
+            this.qLDODataSetBindingSource.Position = 0;
+            // 
+            // nGUOIBANTableAdapter
+            // 
+            this.nGUOIBANTableAdapter.ClearBeforeFill = true;
             // 
             // frmDiaOc
             // 
@@ -659,6 +699,9 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nGUOIBANBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qLDODataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qLDODataSetBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -719,5 +762,9 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TextBox txtMoTaChiTiet;
         private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.BindingSource qLDODataSetBindingSource;
+        private QLDODataSet qLDODataSet;
+        private System.Windows.Forms.BindingSource nGUOIBANBindingSource;
+        private QLDODataSetTableAdapters.NGUOIBANTableAdapter nGUOIBANTableAdapter;
     }
 }

@@ -6,6 +6,7 @@ using System.Data;
 using System.Data.Sql;
 using System.Data.SqlClient;
 using DAL;
+using System.Windows.Forms;
 
 
 namespace BLL
@@ -60,7 +61,10 @@ namespace BLL
                 // thực thi câu truy vấn
                 m_cmd.ExecuteNonQuery();
             }
-            catch { }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
             finally
             {
                 // đóng kết nối và xóa dữ liệu tạm
@@ -92,7 +96,10 @@ namespace BLL
                 // thực thi câu truy vấn
                 m_cmd.ExecuteNonQuery();
             }
-            catch { }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
             finally
             {
                 // đóng kết nối và xóa dữ liệu tạm
@@ -119,7 +126,10 @@ namespace BLL
                 // thực thi câu truy vấn
                 m_cmd.ExecuteNonQuery();
             }
-            catch { }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
             finally
             {
                 // đóng kết nối và xóa dữ liệu tạm
@@ -138,6 +148,45 @@ namespace BLL
             m_da = dal.CreateAdapter("Bao_Select", m_conn);
             m_da.Fill(m_dt);
             return m_dt;
+        }
+
+        public DataTable SelectMaBao(string tenBao)
+        {
+            DataTable dt = new DataTable();
+            dal.OpenConnection(m_conn);
+            m_cmd = new SqlCommand("Bao_SelectMaBao", m_conn);
+            m_cmd.CommandType = CommandType.StoredProcedure;
+
+            m_cmd.Parameters.Add("@TenBao", SqlDbType.NVarChar).Value = tenBao;
+            m_da = new SqlDataAdapter(m_cmd);
+            m_da.Fill(dt);
+            return dt;
+        }
+
+        public DataTable SelectGiaCoHinh(string tenBao)
+        {
+            DataTable dt = new DataTable();
+            dal.OpenConnection(m_conn);
+            m_cmd = new SqlCommand("Bao_SelectGiaCoHinh", m_conn);
+            m_cmd.CommandType = CommandType.StoredProcedure;
+
+            m_cmd.Parameters.Add("@TenBao", SqlDbType.NVarChar).Value = tenBao;
+            m_da = new SqlDataAdapter(m_cmd);
+            m_da.Fill(dt);
+            return dt;
+        }
+
+        public DataTable SelectGiaKhongHinh(string tenBao)
+        {
+            DataTable dt = new DataTable();
+            dal.OpenConnection(m_conn);
+            m_cmd = new SqlCommand("Bao_SelectGiaCoHinh", m_conn);
+            m_cmd.CommandType = CommandType.StoredProcedure;
+
+            m_cmd.Parameters.Add("@TenBao", SqlDbType.NVarChar).Value = tenBao;
+            m_da = new SqlDataAdapter(m_cmd);
+            m_da.Fill(dt);
+            return dt;
         }
 
         /// <summary>
