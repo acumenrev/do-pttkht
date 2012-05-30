@@ -34,6 +34,7 @@
             this.dgvKetQua = new System.Windows.Forms.DataGridView();
             this.btnInPhieu = new System.Windows.Forms.Button();
             this.btnDong = new System.Windows.Forms.Button();
+            this.btnTim = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKetQua)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,7 +63,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvKetQua.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvKetQua.Location = new System.Drawing.Point(15, 44);
+            this.dgvKetQua.MultiSelect = false;
             this.dgvKetQua.Name = "dgvKetQua";
+            this.dgvKetQua.ReadOnly = true;
             this.dgvKetQua.Size = new System.Drawing.Size(531, 208);
             this.dgvKetQua.TabIndex = 2;
             // 
@@ -75,6 +78,7 @@
             this.btnInPhieu.TabIndex = 3;
             this.btnInPhieu.Text = "In phiếu";
             this.btnInPhieu.UseVisualStyleBackColor = true;
+            this.btnInPhieu.Click += new System.EventHandler(this.btnInPhieu_Click);
             // 
             // btnDong
             // 
@@ -87,9 +91,20 @@
             this.btnDong.UseVisualStyleBackColor = true;
             this.btnDong.Click += new System.EventHandler(this.btnDong_Click);
             // 
+            // btnTim
+            // 
+            this.btnTim.Location = new System.Drawing.Point(331, 18);
+            this.btnTim.Name = "btnTim";
+            this.btnTim.Size = new System.Drawing.Size(75, 23);
+            this.btnTim.TabIndex = 5;
+            this.btnTim.Text = "Tìm";
+            this.btnTim.UseVisualStyleBackColor = true;
+            this.btnTim.Click += new System.EventHandler(this.btnTim_Click);
+            // 
             // frmKHSuDungDV
             // 
             this.ClientSize = new System.Drawing.Size(558, 314);
+            this.Controls.Add(this.btnTim);
             this.Controls.Add(this.btnDong);
             this.Controls.Add(this.btnInPhieu);
             this.Controls.Add(this.dgvKetQua);
@@ -99,6 +114,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmKHSuDungDV";
             this.Text = "Khách hàng sử dụng dịch vụ";
+            this.Load += new System.EventHandler(this.frmKHSuDungDV_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvKetQua)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -109,8 +125,9 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker dtpKHSuDungDV;
-        private System.Windows.Forms.DataGridView dgvKetQua;
         private System.Windows.Forms.Button btnInPhieu;
         private System.Windows.Forms.Button btnDong;
+        private System.Windows.Forms.DataGridView dgvKetQua;
+        private System.Windows.Forms.Button btnTim;
     }
 }

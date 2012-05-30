@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGiayTo));
             this.label1 = new System.Windows.Forms.Label();
             this.txtTim = new System.Windows.Forms.TextBox();
-            this.dgbKetQua = new System.Windows.Forms.DataGridView();
+            this.dgvKetQua = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -42,7 +42,8 @@
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
             this.btnDong = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dgbKetQua)).BeginInit();
+            this.btnTaoMoi = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvKetQua)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -60,14 +61,18 @@
             this.txtTim.Name = "txtTim";
             this.txtTim.Size = new System.Drawing.Size(490, 20);
             this.txtTim.TabIndex = 1;
+            this.txtTim.TextChanged += new System.EventHandler(this.txtTim_TextChanged);
             // 
-            // dgbKetQua
+            // dgvKetQua
             // 
-            this.dgbKetQua.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgbKetQua.Location = new System.Drawing.Point(15, 32);
-            this.dgbKetQua.Name = "dgbKetQua";
-            this.dgbKetQua.Size = new System.Drawing.Size(517, 178);
-            this.dgbKetQua.TabIndex = 2;
+            this.dgvKetQua.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvKetQua.Location = new System.Drawing.Point(15, 32);
+            this.dgvKetQua.MultiSelect = false;
+            this.dgvKetQua.Name = "dgvKetQua";
+            this.dgvKetQua.ReadOnly = true;
+            this.dgvKetQua.Size = new System.Drawing.Size(517, 178);
+            this.dgvKetQua.TabIndex = 2;
+            this.dgvKetQua.SelectionChanged += new System.EventHandler(this.dgvKetQua_SelectionChanged);
             // 
             // label2
             // 
@@ -126,6 +131,7 @@
             this.btnThem.TabIndex = 9;
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // btnXoa
             // 
@@ -135,6 +141,7 @@
             this.btnXoa.TabIndex = 10;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnSua
             // 
@@ -144,6 +151,7 @@
             this.btnSua.TabIndex = 11;
             this.btnSua.Text = "Sửa";
             this.btnSua.UseVisualStyleBackColor = true;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnDong
             // 
@@ -155,10 +163,21 @@
             this.btnDong.UseVisualStyleBackColor = true;
             this.btnDong.Click += new System.EventHandler(this.btnDong_Click);
             // 
+            // btnTaoMoi
+            // 
+            this.btnTaoMoi.Location = new System.Drawing.Point(183, 226);
+            this.btnTaoMoi.Name = "btnTaoMoi";
+            this.btnTaoMoi.Size = new System.Drawing.Size(75, 23);
+            this.btnTaoMoi.TabIndex = 13;
+            this.btnTaoMoi.Text = "Tạo mới";
+            this.btnTaoMoi.UseVisualStyleBackColor = true;
+            this.btnTaoMoi.Click += new System.EventHandler(this.btnTaoMoi_Click);
+            // 
             // frmGiayTo
             // 
             this.ClientSize = new System.Drawing.Size(540, 405);
             this.ControlBox = false;
+            this.Controls.Add(this.btnTaoMoi);
             this.Controls.Add(this.btnDong);
             this.Controls.Add(this.btnSua);
             this.Controls.Add(this.btnXoa);
@@ -169,7 +188,7 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.dgbKetQua);
+            this.Controls.Add(this.dgvKetQua);
             this.Controls.Add(this.txtTim);
             this.Controls.Add(this.label1);
             this.DoubleBuffered = true;
@@ -177,7 +196,8 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmGiayTo";
             this.Text = "Giấy tờ";
-            ((System.ComponentModel.ISupportInitialize)(this.dgbKetQua)).EndInit();
+            this.Load += new System.EventHandler(this.frmGiayTo_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvKetQua)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -187,7 +207,7 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtTim;
-        private System.Windows.Forms.DataGridView dgbKetQua;
+        private System.Windows.Forms.DataGridView dgvKetQua;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
@@ -198,5 +218,6 @@
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Button btnSua;
         private System.Windows.Forms.Button btnDong;
+        private System.Windows.Forms.Button btnTaoMoi;
     }
 }

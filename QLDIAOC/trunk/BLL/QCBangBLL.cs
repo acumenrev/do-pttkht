@@ -9,7 +9,7 @@ using DAL;
 
 namespace BLL
 {
-    class QCBangBLL
+    public class QCBangBLL
     {
         #region Fields
 
@@ -137,6 +137,36 @@ namespace BLL
             m_da = dal.CreateAdapter("QCBang_Select", m_conn);
             m_da.Fill(m_dt);
             return m_dt;
+        }
+
+        public DataTable SelectMaPDK(DateTime tu, DateTime den)
+        {
+            DataTable dt = new DataTable();
+            dal.OpenConnection(m_conn);
+            m_cmd = new SqlCommand("QCBang_SelectMaPDK", m_conn);
+            m_cmd.CommandType = CommandType.StoredProcedure;
+
+            m_cmd.Parameters.Add("@Tu", SqlDbType.DateTime).Value = tu;
+            m_cmd.Parameters.Add("@Den", SqlDbType.DateTime).Value = den;
+            
+            m_da = new SqlDataAdapter(m_cmd);
+            m_da.Fill(dt);
+            return dt;
+        }
+
+        public DataTable SelectGiaTien(DateTime tu, DateTime den)
+        {
+            DataTable dt = new DataTable();
+            dal.OpenConnection(m_conn);
+            m_cmd = new SqlCommand("QCBang_SelectGiaTien", m_conn);
+            m_cmd.CommandType = CommandType.StoredProcedure;
+
+            m_cmd.Parameters.Add("@Tu", SqlDbType.DateTime).Value = tu;
+            m_cmd.Parameters.Add("@Den", SqlDbType.DateTime).Value = den;
+
+            m_da = new SqlDataAdapter(m_cmd);
+            m_da.Fill(dt);
+            return dt;
         }
 
         /// <summary>

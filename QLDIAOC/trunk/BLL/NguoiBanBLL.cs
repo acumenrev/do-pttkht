@@ -9,7 +9,7 @@ using DAL;
 
 namespace BLL
 {
-    class NguoiBanBLL
+    public class NguoiBanBLL
     {
         #region Fields
 
@@ -130,6 +130,13 @@ namespace BLL
         {
             // truy vấn tới bảng dữ liệu
             m_da = dal.CreateAdapter("NguoiBan_Select", m_conn);
+            m_da.Fill(m_dt);
+            return m_dt;
+        }
+
+        public DataTable SelectMaHo()
+        {
+            m_da = dal.CreateAdapter("NguoiBan_SelectMaHo", m_conn);
             m_da.Fill(m_dt);
             return m_dt;
         }

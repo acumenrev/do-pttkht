@@ -6,6 +6,8 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
+using DAL;
+using BLL;
 
 namespace QLDIAOC.FormBaoCao
 {
@@ -17,6 +19,9 @@ namespace QLDIAOC.FormBaoCao
         public frmDiaOcTheoTungKhachHang()
         {
             InitializeComponent();
+            m_dal = new DataService();
+            m_diaOc = new DiaOcBLL();
+            m_nguoiBan = new NguoiBanBLL();
         }
 
         #endregion
@@ -24,6 +29,9 @@ namespace QLDIAOC.FormBaoCao
         #region Fields
 
         private const int WM_NCLBUTTONDBLCLK = 0xA3;
+        DataService m_dal;
+        BLL.NguoiBanBLL m_nguoiBan;
+        BLL.DiaOcBLL m_diaOc;
 
         #endregion
 
@@ -50,6 +58,29 @@ namespace QLDIAOC.FormBaoCao
         private void btnDong_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void frmDiaOcTheoTungKhachHang_Load(object sender, EventArgs e)
+        {
+            dgvNguoiBan.DataSource = m_nguoiBan.SelectMaHo();
+            string maNB = dgvNguoiBan.CurrentRow.Cells[0].Value.ToString();
+            dgvDiaOc.DataSource = m_diaOc.SearchMaNB(maNB);
+        }
+
+        private void dgvNguoiBan_SelectionChanged(object sender, EventArgs e)
+        {
+            ClearDataGridViewDiaOc();
+            string maNB = dgvNguoiBan.CurrentRow.Cells[0].Value.ToString();
+            dgvDiaOc.DataSource = m_diaOc.SearchMaNB(maNB);
+        }
+
+        private void ClearDataGridViewDiaOc()
+        {
+            int rowCount = dgvDiaOc.RowCount - 1;
+            for (int i = 0; i < rowCount; i++)
+            {
+                dgvDiaOc.Rows.Remove(dgvDiaOc.CurrentRow);
+            }
         }
     }
 }

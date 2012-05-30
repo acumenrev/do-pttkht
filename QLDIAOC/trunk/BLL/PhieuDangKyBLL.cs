@@ -10,7 +10,7 @@ using DAL;
 
 namespace BLL
 {
-    class PhieuDangKyBLL
+    public class PhieuDangKyBLL
     {
         #region Fields
 
@@ -141,6 +141,21 @@ namespace BLL
             m_da = dal.CreateAdapter("PDKQC_Select", m_conn);
             m_da.Fill(m_dt);
             return m_dt;
+        }
+
+        public DataTable SelectMaNguoiBan(DateTime tu, DateTime den)
+        {
+            DataTable dt = new DataTable();
+            dal.OpenConnection(m_conn);
+            m_cmd = new SqlCommand("PDKQC_SelectMaHo", m_conn);
+            m_cmd.CommandType = CommandType.StoredProcedure;
+            //Tham số
+            m_cmd.Parameters.Add("@Tu", SqlDbType.DateTime).Value = tu;
+            m_cmd.Parameters.Add("@Den", SqlDbType.DateTime).Value = den;
+            /// Thuc thi cau truy van
+            m_da = new SqlDataAdapter(m_cmd);
+            m_da.Fill(dt);
+            return dt;
         }
 
         /// <summary>

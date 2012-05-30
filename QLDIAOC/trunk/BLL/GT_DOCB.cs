@@ -8,7 +8,7 @@ using System.Data.SqlClient;
 using DAL;
 namespace BLL
 {
-    class GT_DOCB
+    public class GT_DOCB
     {
         #region Fields
 

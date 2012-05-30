@@ -39,6 +39,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.btnBaoCao = new System.Windows.Forms.Button();
             this.btnDong = new System.Windows.Forms.Button();
+            this.btnTim = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvToBuom)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBang)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBao)).BeginInit();
@@ -76,7 +77,9 @@
             // 
             this.dgvToBuom.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvToBuom.Location = new System.Drawing.Point(18, 70);
+            this.dgvToBuom.MultiSelect = false;
             this.dgvToBuom.Name = "dgvToBuom";
+            this.dgvToBuom.ReadOnly = true;
             this.dgvToBuom.Size = new System.Drawing.Size(159, 150);
             this.dgvToBuom.TabIndex = 3;
             // 
@@ -84,7 +87,9 @@
             // 
             this.dgvBang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBang.Location = new System.Drawing.Point(239, 70);
+            this.dgvBang.MultiSelect = false;
             this.dgvBang.Name = "dgvBang";
+            this.dgvBang.ReadOnly = true;
             this.dgvBang.Size = new System.Drawing.Size(159, 150);
             this.dgvBang.TabIndex = 5;
             // 
@@ -102,7 +107,9 @@
             // 
             this.dgvBao.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBao.Location = new System.Drawing.Point(459, 70);
+            this.dgvBao.MultiSelect = false;
             this.dgvBao.Name = "dgvBao";
+            this.dgvBao.ReadOnly = true;
             this.dgvBao.Size = new System.Drawing.Size(159, 150);
             this.dgvBao.TabIndex = 7;
             // 
@@ -124,6 +131,7 @@
             this.btnBaoCao.TabIndex = 8;
             this.btnBaoCao.Text = "Lập báo cáo";
             this.btnBaoCao.UseVisualStyleBackColor = true;
+            this.btnBaoCao.Click += new System.EventHandler(this.btnBaoCao_Click);
             // 
             // btnDong
             // 
@@ -135,10 +143,21 @@
             this.btnDong.UseVisualStyleBackColor = true;
             this.btnDong.Click += new System.EventHandler(this.btnDong_Click);
             // 
+            // btnTim
+            // 
+            this.btnTim.Location = new System.Drawing.Point(151, 18);
+            this.btnTim.Name = "btnTim";
+            this.btnTim.Size = new System.Drawing.Size(75, 23);
+            this.btnTim.TabIndex = 10;
+            this.btnTim.Text = "Tìm";
+            this.btnTim.UseVisualStyleBackColor = true;
+            this.btnTim.Click += new System.EventHandler(this.btnTim_Click);
+            // 
             // frmTheoTungLoaiQuangCao
             // 
             this.ClientSize = new System.Drawing.Size(630, 305);
             this.ControlBox = false;
+            this.Controls.Add(this.btnTim);
             this.Controls.Add(this.btnDong);
             this.Controls.Add(this.btnBaoCao);
             this.Controls.Add(this.dgvBao);
@@ -174,5 +193,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnBaoCao;
         private System.Windows.Forms.Button btnDong;
+        private System.Windows.Forms.Button btnTim;
     }
 }

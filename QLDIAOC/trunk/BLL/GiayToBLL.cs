@@ -9,7 +9,7 @@ using DAL;
 
 namespace BLL
 {
-    class GiayToBLL
+    public class GiayToBLL
     {
         #region Fields
 

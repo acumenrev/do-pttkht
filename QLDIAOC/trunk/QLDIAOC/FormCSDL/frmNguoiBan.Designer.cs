@@ -47,6 +47,7 @@
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
             this.btnDong = new System.Windows.Forms.Button();
+            this.btnTaoMoi = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKetQua)).BeginInit();
             this.SuspendLayout();
             // 
@@ -66,7 +67,8 @@
             this.cbbTimTheo.Items.AddRange(new object[] {
             "Địa chỉ",
             "Họ tên",
-            "Mã người bán"});
+            "Mã người bán",
+            "Phone"});
             this.cbbTimTheo.Location = new System.Drawing.Point(53, 6);
             this.cbbTimTheo.Name = "cbbTimTheo";
             this.cbbTimTheo.Size = new System.Drawing.Size(121, 21);
@@ -78,14 +80,18 @@
             this.txtTim.Name = "txtTim";
             this.txtTim.Size = new System.Drawing.Size(244, 20);
             this.txtTim.TabIndex = 2;
+            this.txtTim.TextChanged += new System.EventHandler(this.txtTim_TextChanged);
             // 
             // dgvKetQua
             // 
             this.dgvKetQua.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvKetQua.Location = new System.Drawing.Point(15, 32);
+            this.dgvKetQua.MultiSelect = false;
             this.dgvKetQua.Name = "dgvKetQua";
+            this.dgvKetQua.ReadOnly = true;
             this.dgvKetQua.Size = new System.Drawing.Size(409, 209);
             this.dgvKetQua.TabIndex = 3;
+            this.dgvKetQua.SelectionChanged += new System.EventHandler(this.dgvKetQua_SelectionChanged);
             // 
             // label2
             // 
@@ -170,34 +176,37 @@
             // 
             // btnThem
             // 
-            this.btnThem.Location = new System.Drawing.Point(53, 362);
+            this.btnThem.Location = new System.Drawing.Point(90, 362);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(75, 23);
             this.btnThem.TabIndex = 14;
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // btnXoa
             // 
-            this.btnXoa.Location = new System.Drawing.Point(134, 362);
+            this.btnXoa.Location = new System.Drawing.Point(171, 362);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(75, 23);
             this.btnXoa.TabIndex = 15;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnSua
             // 
-            this.btnSua.Location = new System.Drawing.Point(215, 362);
+            this.btnSua.Location = new System.Drawing.Point(252, 362);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(75, 23);
             this.btnSua.TabIndex = 16;
             this.btnSua.Text = "Sửa";
             this.btnSua.UseVisualStyleBackColor = true;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnDong
             // 
-            this.btnDong.Location = new System.Drawing.Point(296, 362);
+            this.btnDong.Location = new System.Drawing.Point(333, 362);
             this.btnDong.Name = "btnDong";
             this.btnDong.Size = new System.Drawing.Size(75, 23);
             this.btnDong.TabIndex = 17;
@@ -205,10 +214,21 @@
             this.btnDong.UseVisualStyleBackColor = true;
             this.btnDong.Click += new System.EventHandler(this.btnDong_Click);
             // 
+            // btnTaoMoi
+            // 
+            this.btnTaoMoi.Location = new System.Drawing.Point(9, 362);
+            this.btnTaoMoi.Name = "btnTaoMoi";
+            this.btnTaoMoi.Size = new System.Drawing.Size(75, 23);
+            this.btnTaoMoi.TabIndex = 18;
+            this.btnTaoMoi.Text = "Tạo mới";
+            this.btnTaoMoi.UseVisualStyleBackColor = true;
+            this.btnTaoMoi.Click += new System.EventHandler(this.btnTaoMoi_Click);
+            // 
             // frmNguoiBan
             // 
             this.ClientSize = new System.Drawing.Size(444, 397);
             this.ControlBox = false;
+            this.Controls.Add(this.btnTaoMoi);
             this.Controls.Add(this.btnDong);
             this.Controls.Add(this.btnSua);
             this.Controls.Add(this.btnXoa);
@@ -232,6 +252,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmNguoiBan";
             this.Text = "Người bán";
+            this.Load += new System.EventHandler(this.frmNguoiBan_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvKetQua)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -258,5 +279,6 @@
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Button btnSua;
         private System.Windows.Forms.Button btnDong;
+        private System.Windows.Forms.Button btnTaoMoi;
     }
 }

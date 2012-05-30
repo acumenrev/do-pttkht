@@ -10,7 +10,7 @@ using DAL;
 
 namespace BLL
 {
-    class BaoBLL
+    public class BaoBLL
     {
         #region Fields
 

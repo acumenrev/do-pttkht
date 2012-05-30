@@ -60,12 +60,12 @@ namespace QLDIAOC.FormHeThong
             try
             {
                 WriteFile(m_filePath);
-                MessageBox.Show("Quá trình ghi file thành công", "Thông báo",
+                MessageBox.Show("Quá trình lưu thông tin thành công", "Thông báo",
                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch
             {
-                MessageBox.Show("Quá trình ghi file không thành công", "Lỗi",
+                MessageBox.Show("Quá trình lưu thông tin không thành công", "Lỗi",
                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -87,8 +87,8 @@ namespace QLDIAOC.FormHeThong
 
             m_writer.WriteStartElement("", "Info", "");
 
-            m_writer.WriteStartElement("", "GaraName", "");
-            m_writer.WriteString(txtTenGara.Text);
+            m_writer.WriteStartElement("", "Company", "");
+            m_writer.WriteString(txtCongTy.Text);
             m_writer.WriteEndElement();
 
             m_writer.WriteStartElement("", "Address", "");
@@ -125,9 +125,9 @@ namespace QLDIAOC.FormHeThong
                 {
                     if (m_reader.NodeType == XmlNodeType.Element)
                     {
-                        if (m_reader.LocalName.Equals("GaraName"))
+                        if (m_reader.LocalName.Equals("Company"))
                         {
-                            txtTenGara.Text = m_reader.ReadString();
+                            txtCongTy.Text = m_reader.ReadString();
                         }
 
                         if (m_reader.LocalName.Equals("Address"))

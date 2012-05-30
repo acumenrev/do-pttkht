@@ -35,7 +35,7 @@
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtSDT = new System.Windows.Forms.TextBox();
             this.txtDiaChi = new System.Windows.Forms.TextBox();
-            this.txtTenGara = new System.Windows.Forms.TextBox();
+            this.txtCongTy = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -96,12 +96,12 @@
             this.txtDiaChi.Size = new System.Drawing.Size(199, 20);
             this.txtDiaChi.TabIndex = 18;
             // 
-            // txtTenGara
+            // txtCongTy
             // 
-            this.txtTenGara.Location = new System.Drawing.Point(120, 6);
-            this.txtTenGara.Name = "txtTenGara";
-            this.txtTenGara.Size = new System.Drawing.Size(199, 20);
-            this.txtTenGara.TabIndex = 17;
+            this.txtCongTy.Location = new System.Drawing.Point(120, 6);
+            this.txtCongTy.Name = "txtCongTy";
+            this.txtCongTy.Size = new System.Drawing.Size(199, 20);
+            this.txtCongTy.TabIndex = 17;
             // 
             // label5
             // 
@@ -144,9 +144,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 13);
+            this.label1.Size = new System.Drawing.Size(43, 13);
             this.label1.TabIndex = 12;
-            this.label1.Text = "Tên gara";
+            this.label1.Text = "Công ty";
             // 
             // frmThongTinNguoiSuDung
             // 
@@ -158,7 +158,7 @@
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.txtSDT);
             this.Controls.Add(this.txtDiaChi);
-            this.Controls.Add(this.txtTenGara);
+            this.Controls.Add(this.txtCongTy);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -169,6 +169,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmThongTinNguoiSuDung";
             this.Text = "Thông tin người sử dụng";
+           
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -182,7 +183,7 @@
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.TextBox txtSDT;
         private System.Windows.Forms.TextBox txtDiaChi;
-        private System.Windows.Forms.TextBox txtTenGara;
+        private System.Windows.Forms.TextBox txtCongTy;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;

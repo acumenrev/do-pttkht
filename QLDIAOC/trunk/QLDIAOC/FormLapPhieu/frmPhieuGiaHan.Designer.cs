@@ -47,42 +47,45 @@
             this.dtpDen = new System.Windows.Forms.DateTimePicker();
             this.label9 = new System.Windows.Forms.Label();
             this.txtGiaTien = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.btnLapPhieu = new System.Windows.Forms.Button();
             this.btnCapNhat = new System.Windows.Forms.Button();
             this.btnDong = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtMaPDK = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtHeSo = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKetQua)).BeginInit();
             this.SuspendLayout();
             // 
             // txtPhone
             // 
-            this.txtPhone.Enabled = false;
             this.txtPhone.Location = new System.Drawing.Point(90, 310);
             this.txtPhone.Name = "txtPhone";
+            this.txtPhone.ReadOnly = true;
             this.txtPhone.Size = new System.Drawing.Size(100, 20);
             this.txtPhone.TabIndex = 23;
             // 
             // txtDiaChi
             // 
-            this.txtDiaChi.Enabled = false;
             this.txtDiaChi.Location = new System.Drawing.Point(90, 284);
             this.txtDiaChi.Name = "txtDiaChi";
+            this.txtDiaChi.ReadOnly = true;
             this.txtDiaChi.Size = new System.Drawing.Size(334, 20);
             this.txtDiaChi.TabIndex = 22;
             // 
             // txtHoTen
             // 
-            this.txtHoTen.Enabled = false;
-            this.txtHoTen.Location = new System.Drawing.Point(240, 254);
+            this.txtHoTen.Location = new System.Drawing.Point(252, 254);
             this.txtHoTen.Name = "txtHoTen";
+            this.txtHoTen.ReadOnly = true;
             this.txtHoTen.Size = new System.Drawing.Size(100, 20);
             this.txtHoTen.TabIndex = 21;
             // 
             // txtMaNguoiBan
             // 
-            this.txtMaNguoiBan.Enabled = false;
             this.txtMaNguoiBan.Location = new System.Drawing.Point(90, 254);
             this.txtMaNguoiBan.Name = "txtMaNguoiBan";
+            this.txtMaNguoiBan.ReadOnly = true;
             this.txtMaNguoiBan.Size = new System.Drawing.Size(100, 20);
             this.txtMaNguoiBan.TabIndex = 20;
             // 
@@ -117,9 +120,12 @@
             // 
             this.dgvKetQua.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvKetQua.Location = new System.Drawing.Point(15, 32);
+            this.dgvKetQua.MultiSelect = false;
             this.dgvKetQua.Name = "dgvKetQua";
+            this.dgvKetQua.ReadOnly = true;
             this.dgvKetQua.Size = new System.Drawing.Size(409, 209);
             this.dgvKetQua.TabIndex = 16;
+            this.dgvKetQua.SelectionChanged += new System.EventHandler(this.dgvKetQua_SelectionChanged);
             // 
             // txtTim
             // 
@@ -127,6 +133,7 @@
             this.txtTim.Name = "txtTim";
             this.txtTim.Size = new System.Drawing.Size(382, 20);
             this.txtTim.TabIndex = 15;
+            this.txtTim.TextChanged += new System.EventHandler(this.txtTim_TextChanged);
             // 
             // label1
             // 
@@ -175,7 +182,6 @@
             // 
             // dtpTu
             // 
-            this.dtpTu.Enabled = false;
             this.dtpTu.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpTu.Location = new System.Drawing.Point(90, 338);
             this.dtpTu.Name = "dtpTu";
@@ -185,7 +191,7 @@
             // dtpDen
             // 
             this.dtpDen.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDen.Location = new System.Drawing.Point(240, 338);
+            this.dtpDen.Location = new System.Drawing.Point(252, 338);
             this.dtpDen.Name = "dtpDen";
             this.dtpDen.Size = new System.Drawing.Size(100, 20);
             this.dtpDen.TabIndex = 29;
@@ -201,20 +207,11 @@
             // 
             // txtGiaTien
             // 
-            this.txtGiaTien.Enabled = false;
             this.txtGiaTien.Location = new System.Drawing.Point(90, 364);
             this.txtGiaTien.Name = "txtGiaTien";
+            this.txtGiaTien.ReadOnly = true;
             this.txtGiaTien.Size = new System.Drawing.Size(100, 20);
             this.txtGiaTien.TabIndex = 31;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(196, 367);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(96, 13);
-            this.label10.TabIndex = 32;
-            this.label10.Text = "= 80% giá ban đầu";
             // 
             // btnLapPhieu
             // 
@@ -224,6 +221,7 @@
             this.btnLapPhieu.TabIndex = 33;
             this.btnLapPhieu.Text = "Lập phiếu";
             this.btnLapPhieu.UseVisualStyleBackColor = true;
+            this.btnLapPhieu.Click += new System.EventHandler(this.btnLapPhieu_Click);
             // 
             // btnCapNhat
             // 
@@ -233,6 +231,7 @@
             this.btnCapNhat.TabIndex = 34;
             this.btnCapNhat.Text = "Cập nhật";
             this.btnCapNhat.UseVisualStyleBackColor = true;
+            this.btnCapNhat.Click += new System.EventHandler(this.btnCapNhat_Click);
             // 
             // btnDong
             // 
@@ -244,14 +243,51 @@
             this.btnDong.UseVisualStyleBackColor = true;
             this.btnDong.Click += new System.EventHandler(this.btnDong_Click);
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(196, 317);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(47, 13);
+            this.label11.TabIndex = 36;
+            this.label11.Text = "Mã PDK";
+            // 
+            // txtMaPDK
+            // 
+            this.txtMaPDK.Location = new System.Drawing.Point(252, 314);
+            this.txtMaPDK.Name = "txtMaPDK";
+            this.txtMaPDK.ReadOnly = true;
+            this.txtMaPDK.Size = new System.Drawing.Size(100, 20);
+            this.txtMaPDK.TabIndex = 37;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(196, 367);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(35, 13);
+            this.label10.TabIndex = 38;
+            this.label10.Text = "Hệ số";
+            // 
+            // txtHeSo
+            // 
+            this.txtHeSo.Location = new System.Drawing.Point(252, 364);
+            this.txtHeSo.Name = "txtHeSo";
+            this.txtHeSo.ReadOnly = true;
+            this.txtHeSo.Size = new System.Drawing.Size(100, 20);
+            this.txtHeSo.TabIndex = 39;
+            // 
             // frmPhieuGiaHan
             // 
             this.ClientSize = new System.Drawing.Size(432, 432);
             this.ControlBox = false;
+            this.Controls.Add(this.txtHeSo);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.txtMaPDK);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.btnDong);
             this.Controls.Add(this.btnCapNhat);
             this.Controls.Add(this.btnLapPhieu);
-            this.Controls.Add(this.label10);
             this.Controls.Add(this.txtGiaTien);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.dtpDen);
@@ -301,9 +337,12 @@
         private System.Windows.Forms.DateTimePicker dtpDen;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtGiaTien;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button btnLapPhieu;
         private System.Windows.Forms.Button btnCapNhat;
         private System.Windows.Forms.Button btnDong;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox txtMaPDK;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox txtHeSo;
     }
 }

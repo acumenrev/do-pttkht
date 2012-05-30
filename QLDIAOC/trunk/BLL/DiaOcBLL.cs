@@ -9,7 +9,7 @@ using DAL;
 
 namespace BLL
 {
-    class DiaOcBLL
+    public class DiaOcBLL
     {
         #region Fields
 
@@ -39,7 +39,12 @@ namespace BLL
         /// <summary>
         /// Chèn thêm record
         /// </summary>
-        public void Insert(string maDiaOc, string soNha, string duong, string phuong, string quanHuyen, string maNguoiBan, string huongNha, string moTaChiTiet, int namXayNha, string viTri, int soTang, string loaiNha, string loaiNen, float datDai, float datRong, float nhaDai, float nhaRong, string daBan, decimal giaBan)
+        public void Insert(string maDiaOc,  string soNha, string duong, 
+                        string phuong, string quanHuyen, string maNguoiBan, 
+                        string huongNha, string moTaChiTiet, int namXayNha, 
+                        string viTri, int soTang, string loaiNha, 
+                        string loaiNen, float dienTichKhuonVien, float dienTichSuDung, 
+                        string daBan, decimal giaBan)
         {
             try
             {
@@ -62,10 +67,8 @@ namespace BLL
                 m_cmd.Parameters.Add("@SoTang", SqlDbType.Int).Value = soTang;
                 m_cmd.Parameters.Add("@LoaiNha", SqlDbType.NVarChar).Value = loaiNha;
                 m_cmd.Parameters.Add("@LoaiNen", SqlDbType.NVarChar).Value = loaiNen;
-                m_cmd.Parameters.Add("@DatDai", SqlDbType.Float).Value = datDai;
-                m_cmd.Parameters.Add("@DatRong", SqlDbType.Float).Value = datRong;
-                m_cmd.Parameters.Add("@NhaDai", SqlDbType.Float).Value = nhaDai;
-                m_cmd.Parameters.Add("@NhaRong", SqlDbType.Float).Value = nhaRong;
+                m_cmd.Parameters.Add("@DienTichKhuonVien", SqlDbType.Float).Value = dienTichKhuonVien;
+                m_cmd.Parameters.Add("@DienTichSuDung", SqlDbType.Float).Value = dienTichSuDung;
                 m_cmd.Parameters.Add("@DaBan", SqlDbType.NVarChar).Value = daBan;
                 m_cmd.Parameters.Add("@GiaBan", SqlDbType.Decimal).Value = giaBan;
                 // thực thi câu truy vấn
@@ -83,7 +86,12 @@ namespace BLL
         /// <summary>
         /// Cập nhật record
         /// </summary>
-        public void Update(string maDiaOc, string soNha, string duong, string phuong, string quanHuyen, string maNguoiBan, string huongNha, string moTaChiTiet, int namXayNha, string viTri, int soTang, string loaiNha, string loaiNen, float datDai, float datRong, float nhaDai, float nhaRong, string daBan, decimal giaBan)
+        public void Update(string maDiaOc, string soNha, string duong,
+                        string phuong, string quanHuyen, string maNguoiBan,
+                        string huongNha, string moTaChiTiet, int namXayNha,
+                        string viTri, int soTang, string loaiNha,
+                        string loaiNen, float dienTichKhuonVien, float dienTichSuDung,
+                        string daBan, decimal giaBan)
         {
             try
             {
@@ -106,10 +114,8 @@ namespace BLL
                 m_cmd.Parameters.Add("@SoTang", SqlDbType.Int).Value = soTang;
                 m_cmd.Parameters.Add("@LoaiNha", SqlDbType.NVarChar).Value = loaiNha;
                 m_cmd.Parameters.Add("@LoaiNen", SqlDbType.NVarChar).Value = loaiNen;
-                m_cmd.Parameters.Add("@DatDai", SqlDbType.Float).Value = datDai;
-                m_cmd.Parameters.Add("@DatRong", SqlDbType.Float).Value = datRong;
-                m_cmd.Parameters.Add("@NhaDai", SqlDbType.Float).Value = nhaDai;
-                m_cmd.Parameters.Add("@NhaRong", SqlDbType.Float).Value = nhaRong;
+                m_cmd.Parameters.Add("@DienTichKhuonVien", SqlDbType.Float).Value = dienTichKhuonVien;
+                m_cmd.Parameters.Add("@DienTichSuDung", SqlDbType.Float).Value = dienTichSuDung;
                 m_cmd.Parameters.Add("@DaBan", SqlDbType.NVarChar).Value = daBan;
                 m_cmd.Parameters.Add("@GiaBan", SqlDbType.Decimal).Value = giaBan;
                 // thực thi câu truy vấn
@@ -357,14 +363,15 @@ namespace BLL
         /// </summary>
         /// <param name="soTang"></param>
         /// <returns></returns>
-        public DataTable SearchSoTang(int soTang)
+        public DataTable SearchSoTang(int tu, int den)
         {
             DataTable dt = new DataTable();
             dal.OpenConnection(m_conn);
             m_cmd = new SqlCommand("DO_SearchSoNha", m_conn);
             m_cmd.CommandType = CommandType.StoredProcedure;
             //Tham số
-            m_cmd.Parameters.Add("@NoiDungTimKiem", SqlDbType.Int).Value = soTang;
+            m_cmd.Parameters.Add("@Tu", SqlDbType.Int).Value = tu;
+            m_cmd.Parameters.Add("@Den", SqlDbType.Int).Value = den;
             /// Thuc thi cau truy van
             m_da = new SqlDataAdapter(m_cmd);
             m_da.Fill(dt);
@@ -390,14 +397,15 @@ namespace BLL
             return dt;
         }
 
-        public DataTable SearchXayNam(int xayNam)
+        public DataTable SearchXayNam(int tuNam,int denNam)
         {
             DataTable dt = new DataTable();
             dal.OpenConnection(m_conn);
             m_cmd = new SqlCommand("DO_SearchXayNam", m_conn);
             m_cmd.CommandType = CommandType.StoredProcedure;
             //Tham số
-            m_cmd.Parameters.Add("@NoiDungTimKiem", SqlDbType.Int).Value = xayNam;
+            m_cmd.Parameters.Add("@Tu", SqlDbType.Int).Value = tuNam;
+            m_cmd.Parameters.Add("@Den", SqlDbType.Int).Value = denNam;
             /// Thuc thi cau truy van
             m_da = new SqlDataAdapter(m_cmd);
             m_da.Fill(dt);

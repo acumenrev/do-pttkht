@@ -31,11 +31,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmQuyDinh));
             this.dgvBangThamSo = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtTenThamSo = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtGiaTri = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtGhiChu = new System.Windows.Forms.TextBox();
             this.btnCapNhat = new System.Windows.Forms.Button();
             this.btnDong = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBangThamSo)).BeginInit();
@@ -45,9 +45,12 @@
             // 
             this.dgvBangThamSo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBangThamSo.Location = new System.Drawing.Point(11, 13);
+            this.dgvBangThamSo.MultiSelect = false;
             this.dgvBangThamSo.Name = "dgvBangThamSo";
+            this.dgvBangThamSo.ReadOnly = true;
             this.dgvBangThamSo.Size = new System.Drawing.Size(417, 186);
             this.dgvBangThamSo.TabIndex = 0;
+            this.dgvBangThamSo.SelectionChanged += new System.EventHandler(this.dgvBangThamSo_SelectionChanged);
             // 
             // label1
             // 
@@ -58,12 +61,12 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Tên tham số";
             // 
-            // textBox1
+            // txtTenThamSo
             // 
-            this.textBox1.Location = new System.Drawing.Point(89, 211);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 2;
+            this.txtTenThamSo.Location = new System.Drawing.Point(89, 211);
+            this.txtTenThamSo.Name = "txtTenThamSo";
+            this.txtTenThamSo.Size = new System.Drawing.Size(100, 20);
+            this.txtTenThamSo.TabIndex = 2;
             // 
             // label2
             // 
@@ -74,12 +77,12 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Giá trị";
             // 
-            // textBox2
+            // txtGiaTri
             // 
-            this.textBox2.Location = new System.Drawing.Point(89, 241);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 4;
+            this.txtGiaTri.Location = new System.Drawing.Point(89, 241);
+            this.txtGiaTri.Name = "txtGiaTri";
+            this.txtGiaTri.Size = new System.Drawing.Size(100, 20);
+            this.txtGiaTri.TabIndex = 4;
             // 
             // label3
             // 
@@ -90,13 +93,13 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "Ghi chú";
             // 
-            // textBox3
+            // txtGhiChu
             // 
-            this.textBox3.Location = new System.Drawing.Point(89, 273);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(339, 74);
-            this.textBox3.TabIndex = 6;
+            this.txtGhiChu.Location = new System.Drawing.Point(89, 273);
+            this.txtGhiChu.Multiline = true;
+            this.txtGhiChu.Name = "txtGhiChu";
+            this.txtGhiChu.Size = new System.Drawing.Size(339, 74);
+            this.txtGhiChu.TabIndex = 6;
             // 
             // btnCapNhat
             // 
@@ -106,6 +109,7 @@
             this.btnCapNhat.TabIndex = 7;
             this.btnCapNhat.Text = "Cập nhật";
             this.btnCapNhat.UseVisualStyleBackColor = true;
+            this.btnCapNhat.Click += new System.EventHandler(this.btnCapNhat_Click);
             // 
             // btnDong
             // 
@@ -123,11 +127,11 @@
             this.ControlBox = false;
             this.Controls.Add(this.btnDong);
             this.Controls.Add(this.btnCapNhat);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.txtGhiChu);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtGiaTri);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtTenThamSo);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvBangThamSo);
             this.DoubleBuffered = true;
@@ -135,6 +139,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmQuyDinh";
             this.Text = "Quy định";
+            this.Load += new System.EventHandler(this.frmQuyDinh_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvBangThamSo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -145,11 +150,11 @@
 
         private System.Windows.Forms.DataGridView dgvBangThamSo;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtTenThamSo;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtGiaTri;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtGhiChu;
         private System.Windows.Forms.Button btnCapNhat;
         private System.Windows.Forms.Button btnDong;
     }
